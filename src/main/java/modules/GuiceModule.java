@@ -11,10 +11,10 @@ public class GuiceModule extends AbstractModule {
 
     private WebDriver driver;
 
-    public GuiceModule() {
-        this.driver = new WebDriverFactory().create();
+    @Provides
+    private WebDriver getDriver(){
+        return this.driver = new WebDriverFactory().create();
     }
-
 
     @Provides
     @Singleton
