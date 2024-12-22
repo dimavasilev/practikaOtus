@@ -25,6 +25,7 @@
 
         <base.url>https://otus.ru</base.url>
         <browser.name>chrome</browser.name>
+        <webdriver.waiter.timeout>10</webdriver.waiter.timeout>
     </properties>
 
     <dependencies>
@@ -74,6 +75,7 @@
                     <systemPropertyVariables>
                         <base.url>${base.url}</base.url>
                         <browser.name>${browser.name}</browser.name>
+                        <webdriver.waiter.timeout>${webdriver.waiter.timeout}</webdriver.waiter.timeout>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
