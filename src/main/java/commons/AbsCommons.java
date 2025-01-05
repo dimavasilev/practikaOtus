@@ -1,19 +1,27 @@
 package commons;
 
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import commons.waiters.Waiters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class AbsCommons {
 
-    protected WebDriver driver;
+  @Inject
+  protected WebDriver driver;
 
-    protected Waiters waiters;
+  protected Waiters waiters;
 
-    public AbsCommons(WebDriver driver) {
-       this.driver = driver;
-       this.waiters = new Waiters(driver);
+  public static Injector injector = null;
 
-       PageFactory.initElements(driver, this);
+  public AbsCommons() {
+    this.waiters = new Waiters(this.driver);
+
+    if (injector != null) {
+      AbsCommons.injector.injectMembers(this);
     }
+
+    PageFactory.initElements(this.driver, this);
+  }
 }

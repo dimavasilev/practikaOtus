@@ -5,21 +5,39 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import factory.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
+import pages.CoursesPage;
 import pages.MainPage;
+import pages.TeachPage;
 
 public class GuiceModule extends AbstractModule {
 
-    private WebDriver driver;
+  private WebDriver driver;
 
-    @Provides
-    private WebDriver getDriver(){
-        return this.driver = new WebDriverFactory().create();
-    }
+  public GuiceModule() {
+    driver = new WebDriverFactory().create();
+  }
 
-    @Provides
-    @Singleton
-    public MainPage getMainPage() {
-        return new MainPage(driver);
-    }
+  @Provides
+  private WebDriver getDriver() {
+    return this.driver;
+  }
+
+  @Provides
+  @Singleton
+  public MainPage getMainPage() {
+    return new MainPage();
+  }
+
+  @Provides
+  @Singleton
+  public CoursesPage getCoursesPage() {
+    return new CoursesPage();
+  }
+
+  @Provides
+  @Singleton
+  public TeachPage getTechPage() {
+    return new TeachPage();
+  }
 
 }
