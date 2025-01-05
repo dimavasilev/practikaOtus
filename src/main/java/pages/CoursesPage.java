@@ -16,7 +16,7 @@ public class CoursesPage extends AbsBasePage<CoursesPage> {
   private WebElement tgLink;
 
   public CoursesPage clickCreateNewTeach(String searchText) {
-    searchInput.sendKeys("searchText");
+    searchInput.sendKeys(searchText);
     return this;
   }
 
