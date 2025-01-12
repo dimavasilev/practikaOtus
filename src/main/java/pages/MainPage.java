@@ -21,6 +21,8 @@ public class MainPage extends AbsBasePage<MainPage> {
 
   public TeachPage clickCreateNewTeach() {
     createNewTeach.click();
+
+
     return this.teachPage;
   }
 }
