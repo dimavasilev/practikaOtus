@@ -13,14 +13,15 @@ public abstract class AbsCommons {
 
   protected Waiters waiters;
 
-  public static Injector injector = null;
+  //public static Injector injector = null;
 
-  public AbsCommons() {
+  public AbsCommons(WebDriver driver) {
+    this.driver = driver;
     this.waiters = new Waiters(this.driver);
 
-    if (injector != null) {
-      AbsCommons.injector.injectMembers(this);
-    }
+//    if (injector != null) {
+//      AbsCommons.injector.injectMembers(this);
+//    }
 
     PageFactory.initElements(this.driver, this);
   }

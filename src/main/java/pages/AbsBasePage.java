@@ -9,21 +9,24 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public  class AbsBasePage<T> extends AbsCommons {
+public class AbsBasePage<T> extends AbsCommons {
 
   private String baseUrl = System.getProperty("base.url");
+
+  public AbsBasePage(WebDriver driver ) {
+    super(driver);
+  }
 
   @FindBy(tagName = "h1")
   private WebElement header;
 
 
-  public T pageHeaderShouldBeSameAs(String expectedHeader ) {
+  public T pageHeaderShouldBeSameAs(String expectedHeader) {
     assertThat(header.getText())
-    .as("Header should be {}", expectedHeader)
+        .as("Header should be {}", expectedHeader)
         .isEqualTo(expectedHeader);
-    return (T)this;
+    return (T) this;
   }
-
 
 
   private String getPath() {

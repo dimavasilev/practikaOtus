@@ -16,9 +16,8 @@ public class UiExtensions implements BeforeEachCallback, AfterEachCallback {
   @Override
   public void beforeEach(ExtensionContext context) {
     injector = Guice.createInjector(new GuiceModule());
-
-    AbsCommons.injector = injector;
     injector.injectMembers(context.getTestInstance().get());
+
   }
 
   @Override

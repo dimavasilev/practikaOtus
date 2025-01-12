@@ -10,6 +10,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Path("/teach")
 public class TeachPage extends AbsBasePage<TeachPage> {
 
+  public TeachPage(WebDriver driver) {
+    super(driver);
+  }
+
   @FindBy(xpath = "//section[./h2[contains(text(), 'Технологии, которые')]]")
   private WebElement technologiesBlock;
 

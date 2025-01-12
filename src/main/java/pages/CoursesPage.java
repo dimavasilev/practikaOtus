@@ -1,6 +1,7 @@
 package pages;
 
 import annotations.Path;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,6 +9,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Path("/catalog/courses")
 public class CoursesPage extends AbsBasePage<CoursesPage> {
+
+  public CoursesPage(WebDriver driver) {
+    super(driver);
+  }
 
   @FindBy(css = "input[type='search']")
   private WebElement searchInput;
@@ -28,5 +33,3 @@ public class CoursesPage extends AbsBasePage<CoursesPage> {
   }
 
 }
-
-

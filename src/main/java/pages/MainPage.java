@@ -12,6 +12,9 @@ public class MainPage extends AbsBasePage<MainPage> {
   @Inject
   private TeachPage teachPage;
 
+  public MainPage(WebDriver driver) {
+    super(driver);
+  }
 
   @FindBy(css = "section a[href='/teach']")
   private WebElement createNewTeach;

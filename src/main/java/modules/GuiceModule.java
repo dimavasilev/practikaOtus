@@ -25,19 +25,19 @@ public class GuiceModule extends AbstractModule {
   @Provides
   @Singleton
   public MainPage getMainPage() {
-    return new MainPage();
+    return new MainPage(driver);
   }
 
   @Provides
   @Singleton
   public CoursesPage getCoursesPage() {
-    return new CoursesPage();
+    return new CoursesPage(driver);
   }
 
   @Provides
   @Singleton
   public TeachPage getTechPage() {
-    return new TeachPage();
+    return new TeachPage(driver);
   }
 
 }
