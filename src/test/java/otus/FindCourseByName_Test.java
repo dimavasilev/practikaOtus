@@ -15,7 +15,7 @@ public class FindCourseByName_Test {
   @Test
   public void clickSearchButton() {
     coursesPage.open();
-    coursesPage.clickCreateNewTeach("С++");
+    coursesPage.clickCreateNewTeach("C++");
     coursesPage.tgLinkShouldBeVisible();
   }
 }

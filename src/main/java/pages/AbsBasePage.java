@@ -47,18 +47,30 @@ public class AbsBasePage<T> extends AbsCommons {
       Path path = clazz.getAnnotation(Path.class);
       return path.value().startsWith("/") ? path.value() : "/" + path.value();
     }
-    throw new PathPageExceptions();
+    return "";
   }
 
   public T open() {
-    driver.get(baseUrl + getPath());
+    String path = getPath();
+    if(path.isEmpty()){
+      throw new PathPageExceptions();
+    }
+
+    driver.get(baseUrl + path);
     return (T) this;
   }
 
   public T open(String... params) {
+    String path = getPath();
     String url = getUrlTemplate();
+
     for (int i = 0; i < params.length; i++) {
       url = url.replace("$" + (i + 1), params[i]);
+    }
+
+    if(!path.isEmpty()){
+      url = path + url;
+
     }
     driver.get(baseUrl + url);
     return (T) this;
