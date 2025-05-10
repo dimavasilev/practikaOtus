@@ -2,6 +2,7 @@ package otus;
 
 import com.google.inject.Inject;
 import extensions.UiExtensions;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import pages.MainPage;
@@ -13,7 +14,8 @@ public class TecherBlock_Test {
   private MainPage mainPage;
 
   @Test
-  public void clickCreateTeacherButton() {
+  @Description("Тест ")
+    public void clickCreateTeacherButton() {
     mainPage
         .open()
         .clickCreateNewTeach()

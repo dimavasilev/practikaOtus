@@ -1,5 +1,7 @@
 package pages;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import annotations.Path;
 import annotations.UrlData;
 import commons.AbsCommons;
@@ -8,8 +10,6 @@ import exceptions.UrlDataExceptions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AbsBasePage<T> extends AbsCommons {
 

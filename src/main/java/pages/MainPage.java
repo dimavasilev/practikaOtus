@@ -2,6 +2,7 @@ package pages;
 
 import annotations.Path;
 import com.google.inject.Inject;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ public class MainPage extends AbsBasePage<MainPage> {
 
   @FindBy(css = "section a[href='/teach']")
   private WebElement createNewTeach;
+
 
   public TeachPage clickCreateNewTeach() {
     createNewTeach.click();

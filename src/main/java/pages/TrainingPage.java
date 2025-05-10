@@ -1,10 +1,10 @@
 package pages;
 
+import static org.assertj.core.api.AssertionsForClassTypes.*;
+
 import annotations.Path;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
-
-import static org.assertj.core.api.AssertionsForClassTypes.*;
 
 @Path("/")
 public class TrainingPage extends AbsBasePage<TrainingPage> {
@@ -23,4 +23,3 @@ public class TrainingPage extends AbsBasePage<TrainingPage> {
     return this;
   }
 }
-

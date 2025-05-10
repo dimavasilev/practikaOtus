@@ -1,11 +1,11 @@
 package pages;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import annotations.Path;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Path("/catalog/courses")
 public class CoursesPage extends AbsBasePage<CoursesPage> {
