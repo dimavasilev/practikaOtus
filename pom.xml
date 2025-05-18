@@ -24,6 +24,7 @@
         <compiler.plugin.version>3.13.0</compiler.plugin.version>
         <surefire.plugin.version>3.5.2</surefire.plugin.version>
         <aspectj.version>1.9.22</aspectj.version>
+        <spotbugs.version>4.8.3</spotbugs.version>
         <base.url>https://otus.ru</base.url>
         <browser.name>chrome</browser.name>
         <webdriver.waiter.timeout>10</webdriver.waiter.timeout>
@@ -135,6 +136,34 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.3.0</version>
+                <dependencies>
+                    <!-- Если вы хотите использовать SpotBugs с Java 11+ -->
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>${spotbugs.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>Medium</threshold>
+                    <failOnError>true</failOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -147,4 +176,13 @@
             </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.3.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
